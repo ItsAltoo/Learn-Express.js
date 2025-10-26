@@ -1,7 +1,7 @@
 import { load } from "cheerio";
 import axios from "axios";
 
-const scrapeAnimeList = async (url) => {
+export const scrapeAnimeList = async (url) => {
   try {
     const response = await axios.get(url);
     const html = response.data;
@@ -24,7 +24,6 @@ const scrapeAnimeList = async (url) => {
         imageUrl,
         epzTipe,
         newNime,
-        newNime,
         href: endpoint,
       });
     });
@@ -35,5 +34,3 @@ const scrapeAnimeList = async (url) => {
     throw new Error("Failed to fetch ongoing anime");
   }
 };
-
-export { scrapeAnimeList };
