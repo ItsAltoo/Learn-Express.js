@@ -1,12 +1,12 @@
 import { Router, Request, Response } from "express";
 import prisma from "../../libs/prisma";
+import controller from "../../controller/main-controller";
+
 
 const app: Router = Router();
 
-app.get("/", async (req: Request, res: Response) => {
-  const users = await prisma.user.findMany();
-  res.status(200).json(users);
-});
+app.get("/", controller.fetchUser);
+
 
 app.post("/post", async (req: Request, res: Response) => {
   const { email, name, phone_number } = req.body;
