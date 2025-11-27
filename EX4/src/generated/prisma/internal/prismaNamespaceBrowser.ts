@@ -50,7 +50,8 @@ export const AnyNull = runtime.objectEnumValues.instances.AnyNull
 
 export const ModelName = {
   User: 'User',
-  Employed: 'Employed'
+  Company: 'Company',
+  Profile: 'Profile'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -62,18 +63,35 @@ export type ModelName = (typeof ModelName)[keyof typeof ModelName]
 export const UserScalarFieldEnum = {
   id: 'id',
   name: 'name',
+  email: 'email',
   age: 'age',
-  employedId: 'employedId'
+  createdAt: 'createdAt',
+  updateAt: 'updateAt',
+  companyId: 'companyId'
 } as const
 
 export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
 
 
-export const EmployedScalarFieldEnum = {
-  id: 'id'
+export const CompanyScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  address: 'address',
+  createdAt: 'createdAt',
+  updateAt: 'updateAt'
 } as const
 
-export type EmployedScalarFieldEnum = (typeof EmployedScalarFieldEnum)[keyof typeof EmployedScalarFieldEnum]
+export type CompanyScalarFieldEnum = (typeof CompanyScalarFieldEnum)[keyof typeof CompanyScalarFieldEnum]
+
+
+export const ProfileScalarFieldEnum = {
+  id: 'id',
+  bio: 'bio',
+  imageUrl: 'imageUrl',
+  userId: 'userId'
+} as const
+
+export type ProfileScalarFieldEnum = (typeof ProfileScalarFieldEnum)[keyof typeof ProfileScalarFieldEnum]
 
 
 export const SortOrder = {

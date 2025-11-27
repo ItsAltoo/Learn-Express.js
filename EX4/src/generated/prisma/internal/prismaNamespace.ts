@@ -391,7 +391,8 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 
 export const ModelName = {
   User: 'User',
-  Employed: 'Employed'
+  Company: 'Company',
+  Profile: 'Profile'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -407,7 +408,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "employed"
+    modelProps: "user" | "company" | "profile"
     txIsolationLevel: never
   }
   model: {
@@ -485,77 +486,151 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
-    Employed: {
-      payload: Prisma.$EmployedPayload<ExtArgs>
-      fields: Prisma.EmployedFieldRefs
+    Company: {
+      payload: Prisma.$CompanyPayload<ExtArgs>
+      fields: Prisma.CompanyFieldRefs
       operations: {
         findUnique: {
-          args: Prisma.EmployedFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$EmployedPayload> | null
+          args: Prisma.CompanyFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CompanyPayload> | null
         }
         findUniqueOrThrow: {
-          args: Prisma.EmployedFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$EmployedPayload>
+          args: Prisma.CompanyFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CompanyPayload>
         }
         findFirst: {
-          args: Prisma.EmployedFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$EmployedPayload> | null
+          args: Prisma.CompanyFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CompanyPayload> | null
         }
         findFirstOrThrow: {
-          args: Prisma.EmployedFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$EmployedPayload>
+          args: Prisma.CompanyFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CompanyPayload>
         }
         findMany: {
-          args: Prisma.EmployedFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$EmployedPayload>[]
+          args: Prisma.CompanyFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CompanyPayload>[]
         }
         create: {
-          args: Prisma.EmployedCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$EmployedPayload>
+          args: Prisma.CompanyCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CompanyPayload>
         }
         createMany: {
-          args: Prisma.EmployedCreateManyArgs<ExtArgs>
+          args: Prisma.CompanyCreateManyArgs<ExtArgs>
           result: BatchPayload
         }
         delete: {
-          args: Prisma.EmployedDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$EmployedPayload>
+          args: Prisma.CompanyDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CompanyPayload>
         }
         update: {
-          args: Prisma.EmployedUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$EmployedPayload>
+          args: Prisma.CompanyUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CompanyPayload>
         }
         deleteMany: {
-          args: Prisma.EmployedDeleteManyArgs<ExtArgs>
+          args: Prisma.CompanyDeleteManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateMany: {
-          args: Prisma.EmployedUpdateManyArgs<ExtArgs>
+          args: Prisma.CompanyUpdateManyArgs<ExtArgs>
           result: BatchPayload
         }
         upsert: {
-          args: Prisma.EmployedUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$EmployedPayload>
+          args: Prisma.CompanyUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CompanyPayload>
         }
         aggregate: {
-          args: Prisma.EmployedAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateEmployed>
+          args: Prisma.CompanyAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateCompany>
         }
         groupBy: {
-          args: Prisma.EmployedGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.EmployedGroupByOutputType>[]
+          args: Prisma.CompanyGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.CompanyGroupByOutputType>[]
         }
         findRaw: {
-          args: Prisma.EmployedFindRawArgs<ExtArgs>
+          args: Prisma.CompanyFindRawArgs<ExtArgs>
           result: Prisma.JsonObject
         }
         aggregateRaw: {
-          args: Prisma.EmployedAggregateRawArgs<ExtArgs>
+          args: Prisma.CompanyAggregateRawArgs<ExtArgs>
           result: Prisma.JsonObject
         }
         count: {
-          args: Prisma.EmployedCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.EmployedCountAggregateOutputType> | number
+          args: Prisma.CompanyCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.CompanyCountAggregateOutputType> | number
+        }
+      }
+    }
+    Profile: {
+      payload: Prisma.$ProfilePayload<ExtArgs>
+      fields: Prisma.ProfileFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ProfileFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProfilePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ProfileFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProfilePayload>
+        }
+        findFirst: {
+          args: Prisma.ProfileFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProfilePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ProfileFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProfilePayload>
+        }
+        findMany: {
+          args: Prisma.ProfileFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProfilePayload>[]
+        }
+        create: {
+          args: Prisma.ProfileCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProfilePayload>
+        }
+        createMany: {
+          args: Prisma.ProfileCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        delete: {
+          args: Prisma.ProfileDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProfilePayload>
+        }
+        update: {
+          args: Prisma.ProfileUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProfilePayload>
+        }
+        deleteMany: {
+          args: Prisma.ProfileDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ProfileUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        upsert: {
+          args: Prisma.ProfileUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProfilePayload>
+        }
+        aggregate: {
+          args: Prisma.ProfileAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateProfile>
+        }
+        groupBy: {
+          args: Prisma.ProfileGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ProfileGroupByOutputType>[]
+        }
+        findRaw: {
+          args: Prisma.ProfileFindRawArgs<ExtArgs>
+          result: Prisma.JsonObject
+        }
+        aggregateRaw: {
+          args: Prisma.ProfileAggregateRawArgs<ExtArgs>
+          result: Prisma.JsonObject
+        }
+        count: {
+          args: Prisma.ProfileCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ProfileCountAggregateOutputType> | number
         }
       }
     }
@@ -579,18 +654,35 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
 export const UserScalarFieldEnum = {
   id: 'id',
   name: 'name',
+  email: 'email',
   age: 'age',
-  employedId: 'employedId'
+  createdAt: 'createdAt',
+  updateAt: 'updateAt',
+  companyId: 'companyId'
 } as const
 
 export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
 
 
-export const EmployedScalarFieldEnum = {
-  id: 'id'
+export const CompanyScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  address: 'address',
+  createdAt: 'createdAt',
+  updateAt: 'updateAt'
 } as const
 
-export type EmployedScalarFieldEnum = (typeof EmployedScalarFieldEnum)[keyof typeof EmployedScalarFieldEnum]
+export type CompanyScalarFieldEnum = (typeof CompanyScalarFieldEnum)[keyof typeof CompanyScalarFieldEnum]
+
+
+export const ProfileScalarFieldEnum = {
+  id: 'id',
+  bio: 'bio',
+  imageUrl: 'imageUrl',
+  userId: 'userId'
+} as const
+
+export type ProfileScalarFieldEnum = (typeof ProfileScalarFieldEnum)[keyof typeof ProfileScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -640,6 +732,20 @@ export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'In
  * Reference to a field of type 'Int[]'
  */
 export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
+    
+
+
+/**
+ * Reference to a field of type 'DateTime'
+ */
+export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
+    
+
+
+/**
+ * Reference to a field of type 'DateTime[]'
+ */
+export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
     
 
 
@@ -743,7 +849,8 @@ export interface PrismaClientOptions {
 }
 export type GlobalOmitConfig = {
   user?: Prisma.UserOmit
-  employed?: Prisma.EmployedOmit
+  company?: Prisma.CompanyOmit
+  profile?: Prisma.ProfileOmit
 }
 
 /* Types for Logging */

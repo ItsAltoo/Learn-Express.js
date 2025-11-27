@@ -15,17 +15,36 @@ datasource db {
 }
 
 model User {
-  id   String @id @default(auto()) @map("_id") @db.ObjectId
-  name String
-  age  Int
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  name  String
+  email String @unique
+  age   Int
 
-  employed   Employed? @relation(fields: [employedId], references: [id])
-  employedId String?   @db.ObjectId
+  createdAt DateTime @default(now())
+  updateAt  DateTime @updatedAt
 
-  
+  profile Profile?
+
+  company   Company? @relation(fields: [companyId], references: [id])
+  companyId String?  @db.ObjectId
 }
 
-model Employed {
-  id   String @id @default(auto()) @map("_id") @db.ObjectId
-  user User[]
+model Company {
+  id      String @id @default(auto()) @map("_id") @db.ObjectId
+  name    String
+  address String
+
+  createdAt DateTime @default(now())
+  updateAt  DateTime @updatedAt
+
+  users User[]
+}
+
+model Profile {
+  id       String  @id @default(auto()) @map("_id") @db.ObjectId
+  bio      String?
+  imageUrl String?
+
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId String @unique @db.ObjectId
 }
